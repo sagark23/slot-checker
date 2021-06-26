@@ -1,3 +1,5 @@
 {
-  "projectId": "d7rynj"
+  "projectId": "d7rynj",
+  "video": false,
+  "chromeWebSecurity": false
 }
