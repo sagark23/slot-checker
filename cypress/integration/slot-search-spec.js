@@ -8,6 +8,7 @@ describe('slot checking app', () => {
   })
 
   it('check slot availability for BALMORAL, BELFAST', () => {
+    // Login Page
     cy.get('#slotBookingRef').click();
     cy.get('#slotBookingRef').type('978189670A/0');
     cy.get('#BSP_Driver_DriverNo').click();
@@ -17,8 +18,8 @@ describe('slot checking app', () => {
     cy.get('#nextButton').click();
     cy.get('#dvtaForm').submit();
 
+    // Centre and Date Selection
     cy.get('#slotTestCentre').select('BALMORAL, BELFAST');
-    cy.get('#slotTestCentre').type('BB')
     cy.get('#slotSearchStartDate_day').select('01');
     cy.get('#slotSearchStartDate_month').select('Jul');
 //    cy.get('#slotSearchStartDate_year').type('2021');
@@ -27,8 +28,61 @@ describe('slot checking app', () => {
 //    cy.get('#slotSearchEndDate_year').type('2021');
     cy.get('#nextButton').click();
     cy.get('#dvtaForm').submit();
-    cy.get('.slotListDiv').click();
 
+    // Fail test if slots available to receive notification
+    cy.get('.slotListDiv').click();
+    cy.get('.data:nth-child(2) > td:nth-child(2)').should('not.exist');
+
+  })
+
+  it('check slot availability for DILL ROAD, BELFAST', () => {
+    // Login Page
+    cy.get('#slotBookingRef').click();
+    cy.get('#slotBookingRef').type('978189670A/0');
+    cy.get('#BSP_Driver_DriverNo').click();
+    cy.get('#BSP_Driver_DriverNo').type('41352667');
+    cy.get('#BSP_Driver_DateOfBirth').click();
+    cy.get('#BSP_Driver_DateOfBirth').type('20/11/1990');
+    cy.get('#nextButton').click();
+    cy.get('#dvtaForm').submit();
+
+    // Centre and Date Selection
+    cy.get('#slotTestCentre').select('DILL ROAD, BELFAST');
+    cy.get('#slotSearchStartDate_day').select('01');
+    cy.get('#slotSearchStartDate_month').select('Jul');
+    cy.get('#slotSearchEndDate_day').select('30');
+    cy.get('#slotSearchEndDate_month').select('Jul');
+    cy.get('#nextButton').click();
+    cy.get('#dvtaForm').submit();
+    
+    // Fail test if slots available to receive notification
+    cy.get('.slotListDiv').click();
+    cy.get('.data:nth-child(2) > td:nth-child(2)').should('not.exist');
+
+  })
+
+  it('check slot availability for NEWTOWNARDS', () => {
+    // Login Page
+    cy.get('#slotBookingRef').click();
+    cy.get('#slotBookingRef').type('978189670A/0');
+    cy.get('#BSP_Driver_DriverNo').click();
+    cy.get('#BSP_Driver_DriverNo').type('41352667');
+    cy.get('#BSP_Driver_DateOfBirth').click();
+    cy.get('#BSP_Driver_DateOfBirth').type('20/11/1990');
+    cy.get('#nextButton').click();
+    cy.get('#dvtaForm').submit();
+
+    // Centre and Date Selection
+    cy.get('#slotTestCentre').select('NEWTOWNARDS');
+    cy.get('#slotSearchStartDate_day').select('01');
+    cy.get('#slotSearchStartDate_month').select('Jul');
+    cy.get('#slotSearchEndDate_day').select('30');
+    cy.get('#slotSearchEndDate_month').select('Jul');
+    cy.get('#nextButton').click();
+    cy.get('#dvtaForm').submit();
+    
+    // Fail test if slots available to receive notification
+    cy.get('.slotListDiv').click();
     cy.get('.data:nth-child(2) > td:nth-child(2)').should('not.exist');
 
   })
