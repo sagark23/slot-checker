@@ -1,0 +1,22 @@
+{
+  "name": "slot-checker",
+  "version": "1.0.0",
+  "description": "check for ni practical license slots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagark23/slot-checker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sagark23/slot-checker/issues"
+  },
+  "homepage": "https://github.com/sagark23/slot-checker#readme",
+  "devDependencies": {
+    "cypress": "^7.6.0"
+  }
+}
